@@ -6,7 +6,43 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaCompressionDotNet", "DeltaCompressionDotNet\DeltaCompressionDotNet.csproj", "{14A778A4-0F47-48A1-9861-C7284A6B5271}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaCompressionDotNet.MsDelta", "DeltaCompressionDotNet.MsDelta\DeltaCompressionDotNet.MsDelta.csproj", "{2C4775AB-3CF9-4CF0-97F8-A0188A86793C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaCompressionDotNet.PatchApi", "DeltaCompressionDotNet.PatchApi\DeltaCompressionDotNet.PatchApi.csproj", "{7B3A9609-82F1-4E58-AABD-FAC3926B08F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaCompressionDotNet.PatchApi.Tests", "DeltaCompressionDotNet.PatchApi.Tests\DeltaCompressionDotNet.PatchApi.Tests.csproj", "{00B87BCD-5765-4C45-8D43-934422E0110F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaCompressionDotNet.MsDelta.Tests", "DeltaCompressionDotNet.MsDelta.Tests\DeltaCompressionDotNet.MsDelta.Tests.csproj", "{3F4FFD3D-450F-4415-BC23-1F6C034AA618}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14A778A4-0F47-48A1-9861-C7284A6B5271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A778A4-0F47-48A1-9861-C7284A6B5271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14A778A4-0F47-48A1-9861-C7284A6B5271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14A778A4-0F47-48A1-9861-C7284A6B5271}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C4775AB-3CF9-4CF0-97F8-A0188A86793C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C4775AB-3CF9-4CF0-97F8-A0188A86793C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C4775AB-3CF9-4CF0-97F8-A0188A86793C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C4775AB-3CF9-4CF0-97F8-A0188A86793C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B3A9609-82F1-4E58-AABD-FAC3926B08F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B3A9609-82F1-4E58-AABD-FAC3926B08F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B3A9609-82F1-4E58-AABD-FAC3926B08F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B3A9609-82F1-4E58-AABD-FAC3926B08F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00B87BCD-5765-4C45-8D43-934422E0110F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B87BCD-5765-4C45-8D43-934422E0110F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B87BCD-5765-4C45-8D43-934422E0110F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B87BCD-5765-4C45-8D43-934422E0110F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F4FFD3D-450F-4415-BC23-1F6C034AA618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F4FFD3D-450F-4415-BC23-1F6C034AA618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F4FFD3D-450F-4415-BC23-1F6C034AA618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F4FFD3D-450F-4415-BC23-1F6C034AA618}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
