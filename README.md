@@ -12,7 +12,7 @@ To this extent, the library is also licensed under the [*DBAD-PL*](http://www.db
 
 ## Getting Started
 
-[Install the `DeltaCompressionDotNet` package from NuGet](http://nuget.org/packages/DeltaCompressionDotNet/).
+[Install the *DeltaCompressionDotNet* package from NuGet](http://nuget.org/packages/DeltaCompressionDotNet/).
 
 ### Creating Deltas
 
