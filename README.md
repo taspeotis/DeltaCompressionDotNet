@@ -1,10 +1,8 @@
-DeltaCompressionDotNet
-======================
+# DeltaCompressionDotNet
 
 A managed wrapper around [Microsoft's delta compression application programming interfaces](http://msdn.microsoft.com/en-us/library/bb417345.aspx).
 
-License
--------
+## License
 
 *DeltaCompressionDotNet* is licensed under the [*Microsoft Public License (MS-PL)*](http://www.microsoft.com/en-us/openness/licenses.aspx).
 
@@ -12,24 +10,25 @@ It's worth noting that large parts of *DeltaCompressionDotNet*'s implementation 
 
 To this extent, the library is also licensed under the [*DBAD-PL*](http://www.dbad-license.org).
 
-Creating Deltas
----------------
+## Getting Started
+
+[Install the `DeltaCompressionDotNet` package from NuGet](http://nuget.org/packages/DeltaCompressionDotNet/).
+
+### Creating Deltas
 
     var compression = new MsDeltaCompression(); /* or PatchApiCompression(); */
     compression.CreateDelta(sourcePath, destinationPath, deltaPath);
 
 `CreateDelta` returns `void`; if the function is not successful in creating a delta a `Win32Exception` is thrown. The `NativeErrorCode` of the exception should contain the value of `GetLastError()`, which may describe the failure.
 
-Applying Deltas
----------------
+### Applying Deltas
 
     var compression = new MsDeltaCompression(); /* or PatchApiCompression(); */
 	compression.ApplyDelta(deltaPath, sourcePath, destinationPath);
 
 `ApplyDelta` returns `void`; if the function is not successful in applying a delta a `Win32Exception` is thrown. The `NativeErrorCode` of the exception should contain the value of `GetLastError()`, which may describe the failure.
 
-Miscellany
-----------
+## Miscellany
 
 Both `MsDeltaCompression` and `PatchApiCompression` implement `IDeltaCompression`.
 
@@ -43,8 +42,7 @@ The library is not tied to any particular architecture, the code should execute 
 
 It's unlikely that *DeltaCompressionDotNet* will work on operating systems other than Windows (à la Mono).
 
-Bugs/Feedback
--------------
+## Bugs/Feedback
 
 If you encounter a scenario where the wrapping around *PatchAPI* or *MSDelta* doesn't work as you expect, you're welcome to report a bug, initiate a pull request or send an email to `t AT speot DOT is`. The latter method is likely to elicit a response, but not guaranteed.
 
