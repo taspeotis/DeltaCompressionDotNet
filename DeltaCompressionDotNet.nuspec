@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>DeltaCompressionDotNet</id>
+        <version>$version$</version>
+        <title>DeltaCompressionDotNet</title>
+        <authors>ta.speot.is</authors>
+        <owners>ta.speot.is</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A managed wrapper around Microsoft's delta compression application programming interfaces.</description>
+        <copyright>Copyright &#169; Todd Aspeotis 2014</copyright>
+    </metadata>
+    <files>
+        <file src="DeltaCompressionDotNet.MsDelta\bin\Release\DeltaCompressionDotNet.MsDelta.dll" target="lib\net20\DeltaCompressionDotNet.MsDelta.dll" />
+        <file src="DeltaCompressionDotNet.PatchApi\bin\Release\DeltaCompressionDotNet.PatchApi.dll" target="lib\net20\DeltaCompressionDotNet.PatchApi.dll" />
+        <file src="DeltaCompressionDotNet\bin\Release\DeltaCompressionDotNet.dll" target="lib\net20\DeltaCompressionDotNet.dll" />
+    </files>
+</package>

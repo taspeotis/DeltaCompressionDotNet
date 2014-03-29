@@ -72,6 +72,7 @@ namespace DeltaCompressionDotNet.PatchApi.Tests
             compression.ApplyDelta(_privateDeltaPath, _privateNotepadPath, _privateFinalPath);
 
             var finalHash = HashFile(_privateFinalPath);
+
             CollectionAssert.AreEqual(_calcHash, finalHash);
         }
     }
