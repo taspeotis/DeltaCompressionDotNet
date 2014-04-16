@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -8,8 +8,8 @@ namespace DeltaCompressionDotNet.PatchApi.Tests
     [TestClass]
     public class PatchApiCompressionTests
     {
-        private const string NotepadPath = @"C:\Windows\System32\Notepad.exe";
-        private const string CalcPath = @"C:\Windows\System32\Calc.exe";
+        private const string NotepadFileName = "Notepad.exe";
+        private const string CalcFileName = "Calc.exe";
 
         private readonly string _privateCalcPath = Path.GetTempFileName();
         private readonly string _privateDeltaPath = Path.GetTempFileName();
@@ -20,8 +20,11 @@ namespace DeltaCompressionDotNet.PatchApi.Tests
         [TestInitialize]
         public void TestInitialize()
         {
-            CopyFile(CalcPath, _privateCalcPath);
-            CopyFile(NotepadPath, _privateNotepadPath);
+            var systemPath  = Environment.GetFolderPath(Environment.SpecialFolder.System);
+            var notepadPath = Path.Combine(systemPath, NotepadFileName);
+            var calcPath    = Path.Combine(systemPath, CalcFileName);
+            CopyFile(calcPath, _privateCalcPath);
+            CopyFile(notepadPath, _privateNotepadPath);
 
             // Hash Calc.exe so we can be sure that the applied patch turns Notepad.exe into Calc.exe
             _calcHash = HashFile(_privateCalcPath);
