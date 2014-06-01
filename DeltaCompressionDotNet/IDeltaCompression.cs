@@ -7,5 +7,6 @@
         void ApplyDelta(string deltaFilePath, string oldFilePath, string newFilePath);
     }
 
-    // TODO IDeltaCompression2 - which takes buffers
+    // TODO IDeltaCompressionWithHandles (exclusively PatchAPI)
+    // TODO IDeltaCompressionWithBuffers (exclusively MSDelta)
 }

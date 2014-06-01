@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{00B87BCD-5765-4C45-8D43-934422E0110F}</ProjectGuid>
+    <ProjectGuid>{170D1B88-7488-45D2-A879-202DAFE9847F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DeltaCompressionDotNet.PatchApi.Tests</RootNamespace>
-    <AssemblyName>DeltaCompressionDotNet.PatchApi.Tests</AssemblyName>
+    <RootNamespace>DeltaCompressionDotNet.Tests</RootNamespace>
+    <AssemblyName>DeltaCompressionDotNet.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -25,7 +25,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,12 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Properties\StrongNameKey.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
       <ItemGroup>
@@ -54,21 +50,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CompressionTests.cs" />
+    <Compile Include="MsDeltaCompressionTests.cs" />
     <Compile Include="PatchApiCompressionTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DeltaCompressionDotNet.PatchApi\DeltaCompressionDotNet.PatchApi.csproj">
-      <Project>{7B3A9609-82F1-4E58-AABD-FAC3926B08F8}</Project>
-      <Name>DeltaCompressionDotNet.PatchApi</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DeltaCompressionDotNet\DeltaCompressionDotNet.csproj">
       <Project>{14A778A4-0F47-48A1-9861-C7284A6B5271}</Project>
       <Name>DeltaCompressionDotNet</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\StrongNameKey.snk" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

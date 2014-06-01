@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace DeltaCompressionDotNet.PatchApi.Tests
+namespace DeltaCompressionDotNet.Tests
 {
-    [TestClass]
-    public class PatchApiCompressionTests
+    public class CompressionTests<TDeltaCompression>
+        where TDeltaCompression : IDeltaCompression, new()
     {
         private const string NotepadFileName = "Notepad.exe";
         private const string CalcFileName = "Calc.exe";
@@ -15,14 +15,16 @@ namespace DeltaCompressionDotNet.PatchApi.Tests
         private readonly string _privateDeltaPath = Path.GetTempFileName();
         private readonly string _privateFinalPath = Path.GetTempFileName();
         private readonly string _privateNotepadPath = Path.GetTempFileName();
+
         private byte[] _calcHash;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            var systemPath  = Environment.GetFolderPath(Environment.SpecialFolder.System);
+            var systemPath = Environment.GetFolderPath(Environment.SpecialFolder.System);
             var notepadPath = Path.Combine(systemPath, NotepadFileName);
-            var calcPath    = Path.Combine(systemPath, CalcFileName);
+            var calcPath = Path.Combine(systemPath, CalcFileName);
+
             CopyFile(calcPath, _privateCalcPath);
             CopyFile(notepadPath, _privateNotepadPath);
 
@@ -30,12 +32,12 @@ namespace DeltaCompressionDotNet.PatchApi.Tests
             _calcHash = HashFile(_privateCalcPath);
         }
 
-        private static void CopyFile(string sourceFileName, string destinationFileName)
+        protected static void CopyFile(string sourceFileName, string destinationFileName)
         {
             File.Copy(sourceFileName, destinationFileName, true);
         }
 
-        private static byte[] HashFile(string path)
+        protected static byte[] HashFile(string path)
         {
             using (var fileStream = new FileStream(path, FileMode.Open))
             using (var hashAlgorithm = SHA1.Create())
@@ -69,7 +71,7 @@ namespace DeltaCompressionDotNet.PatchApi.Tests
         [TestMethod]
         public void CreateAndApplyDelta()
         {
-            var compression = new PatchApiCompression();
+            var compression = new TDeltaCompression();
 
             compression.CreateDelta(_privateNotepadPath, _privateCalcPath, _privateDeltaPath);
             compression.ApplyDelta(_privateDeltaPath, _privateNotepadPath, _privateFinalPath);
