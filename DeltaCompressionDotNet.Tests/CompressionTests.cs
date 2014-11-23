@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -40,7 +41,7 @@ namespace DeltaCompressionDotNet.Tests
                 compressionTest.TestCleanup();
         }
 
-        [TestMethod]
+        [ExpectedException(typeof(Win32Exception)), TestMethod]
         public void ApplyDelta_Calls_GetLastError()
         {
             var deltaCompression = new TDeltaCompression();
@@ -52,10 +53,12 @@ namespace DeltaCompressionDotNet.Tests
             catch (Win32Exception exception)
             {
                 Assert.AreNotEqual(0, exception.NativeErrorCode);
+
+                throw;
             }
         }
 
-        [TestMethod]
+        [ExpectedException(typeof(Win32Exception)), TestMethod]
         public void CreateDelta_Calls_GetLastError()
         {
             var deltaCompression = new TDeltaCompression();
@@ -67,6 +70,8 @@ namespace DeltaCompressionDotNet.Tests
             catch (Win32Exception exception)
             {
                 Assert.AreNotEqual(0, exception.NativeErrorCode);
+
+                throw;
             }
         }
 
@@ -140,6 +145,7 @@ namespace DeltaCompressionDotNet.Tests
             }
         }
 
+        [ExcludeFromCodeCoverage]
         private static void TryDeleteFile(string path)
         {
             try
