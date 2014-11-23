@@ -18,13 +18,13 @@ namespace DeltaCompressionDotNet.MsDelta
         /// <remarks>
         ///     http://msdn.microsoft.com/en-us/library/bb417345.aspx#applydeltaaw
         /// </remarks>
-        [DllImport("msdelta.dll", CharSet = CharSet.Unicode)]
+        [DllImport("msdelta.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool ApplyDelta([MarshalAs(UnmanagedType.I8)] ApplyFlags applyFlags,
-                                             string sourceName,
-                                             string deltaName,
-                                             string targetName);
-
+        public static extern bool ApplyDelta(
+            [MarshalAs(UnmanagedType.I8)] ApplyFlags applyFlags,
+            string sourceName,
+            string deltaName,
+            string targetName);
 
         /// <summary>
         ///     The CreateDelta function creates a delta from the specified source and target files and write the output delta to the designated file name.
@@ -46,18 +46,19 @@ namespace DeltaCompressionDotNet.MsDelta
         /// <remarks>
         ///     http://msdn.microsoft.com/en-us/library/bb417345.aspx#createdeltaaw
         /// </remarks>
-        [DllImport("msdelta.dll", CharSet = CharSet.Unicode)]
+        [DllImport("msdelta.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool CreateDelta([MarshalAs(UnmanagedType.I8)] FileTypeSet fileTypeSet,
-                                              long setFlags,
-                                              long resetFlags,
-                                              string sourceName,
-                                              string targetName,
-                                              string sourceOptionsName,
-                                              string targetOptionsName,
-                                              DeltaInput globalOptions,
-                                              IntPtr targetFileTime,
-                                              [MarshalAs(UnmanagedType.U4)] HashAlgId hashAlgId,
-                                              string deltaName);
+        public static extern bool CreateDelta(
+            [MarshalAs(UnmanagedType.I8)] FileTypeSet fileTypeSet,
+            long setFlags,
+            long resetFlags,
+            string sourceName,
+            string targetName,
+            string sourceOptionsName,
+            string targetOptionsName,
+            DeltaInput globalOptions,
+            IntPtr targetFileTime,
+            [MarshalAs(UnmanagedType.U4)] HashAlgId hashAlgId,
+            string deltaName);
     }
 }

@@ -15,7 +15,7 @@ namespace DeltaCompressionDotNet.PatchApi
         /// <param name="applyOptionFlags">ApplyPatch Flags.</param>
         /// <returns>Returns TRUE on success or FALSE otherwise.</returns>
         /// <remarks>http://msdn.microsoft.com/en-us/library/bb417345.aspx#applypatchtofileaw</remarks>
-        [DllImport("mspatcha.dll", CharSet = CharSet.Unicode)]
+        [DllImport("mspatcha.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool ApplyPatchToFile(
             string patchFileName, string oldFileName, string newFileName, uint applyOptionFlags);
@@ -31,7 +31,7 @@ namespace DeltaCompressionDotNet.PatchApi
         /// <param name="optionData">Not used. Pass NULL. Pointer to a structure of type PATCH_OPTION_DATA.</param>
         /// <returns>Returns TRUE on success or FALSE otherwise.</returns>
         /// <remarks>http://msdn.microsoft.com/en-us/library/bb417345.aspx#createpatchfileaw</remarks>
-        [DllImport("mspatchc.dll", CharSet = CharSet.Unicode)]
+        [DllImport("mspatchc.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool CreatePatchFile(
             string oldFileName, string newFileName, string patchFileName, uint optionFlags, IntPtr optionData);

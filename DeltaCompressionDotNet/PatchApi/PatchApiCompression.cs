@@ -7,13 +7,18 @@ namespace DeltaCompressionDotNet.PatchApi
     {
         public void CreateDelta(string oldFilePath, string newFilePath, string deltaFilePath)
         {
-            if (!NativeMethods.CreatePatchFile(oldFilePath, newFilePath, deltaFilePath, 0, IntPtr.Zero))
+            const int optionFlags = 0;
+            var optionData = IntPtr.Zero;
+
+            if (!NativeMethods.CreatePatchFile(oldFilePath, newFilePath, deltaFilePath, optionFlags, optionData))
                 throw new Win32Exception();
         }
 
         public void ApplyDelta(string deltaFilePath, string oldFilePath, string newFilePath)
         {
-            if (!NativeMethods.ApplyPatchToFile(deltaFilePath, oldFilePath, newFilePath, 0))
+            const int applyOptionFlags = 0;
+
+            if (!NativeMethods.ApplyPatchToFile(deltaFilePath, oldFilePath, newFilePath, applyOptionFlags))
                 throw new Win32Exception();
         }
     }

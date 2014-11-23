@@ -8,5 +8,5 @@
     }
 
     // TODO IDeltaCompressionWithHandles (exclusively PatchAPI)
-    // TODO IDeltaCompressionWithBuffers (exclusively MSDelta)
+    // TODO IDeltaCompressionWithBuffers (PatchAPI and MSDelta)
 }
