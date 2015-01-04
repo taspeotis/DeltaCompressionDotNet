@@ -34,9 +34,7 @@ Both `MsDeltaCompression` and `PatchApiCompression` implement `IDeltaCompression
 
 *PatchAPI* (concomitant class: `PatchApiCompression`) is available from Windows 2000; *MSDelta* (concomitant class: `MsDeltaCompression`) is available from Windows Vista.
 
-*DeltaCompressionDotNet* targets the .NET Framework 4.5, which is only available on Windows Vista and later.
-
-Nothing prevents you from reducing the library target to a version of the .NET Framework that runs on operating systems earlier than Windows Vista, but if you're lucky enough to be using the .NET Framework 4.5 then you should prefer `MsDeltaCompression` over `PatchApiCompression` where possible.
+*DeltaCompressionDotNet* targets the .NET Framework 2.0, but if you're lucky enough to be using the .NET Framework 4.5 then you should prefer `MsDeltaCompression` over `PatchApiCompression` where possible.
 
 The library is not tied to any particular architecture, the code should execute on x86, x64 and ia64.
 
@@ -47,3 +45,11 @@ It's unlikely that *DeltaCompressionDotNet* will work on operating systems other
 If you encounter a scenario where the wrapping around *PatchAPI* or *MSDelta* doesn't work as you expect, you're welcome to report a bug, initiate a pull request or send an email to `t AT speot DOT is`. The latter method is likely to elicit a response, but not guaranteed.
 
 The above applies equally for feedback.
+
+## Contributors
+
+[Mark Junker](https://github.com/fubar-coder) made [this request](https://github.com/taspeotis/DeltaCompressionDotNet/issues/2) to get *DeltaCompressionDotNet* working with Windows XP.
+
+[Atif Aziz](https://github.com/atifaziz) kindly submitted [improvements](https://github.com/taspeotis/DeltaCompressionDotNet/pull/3) to the unit tests ([twice](https://github.com/taspeotis/DeltaCompressionDotNet/pull/4)) and provided advice on structuring the project.
+
+John Anderson from [Fungusware](http://www.fungusware.com/) identified [several](https://github.com/taspeotis/DeltaCompressionDotNet/issues/7) [issues](https://github.com/taspeotis/DeltaCompressionDotNet/issues/8) [with](https://github.com/taspeotis/DeltaCompressionDotNet/issues/9) *DeltaCompressionDotNet*.

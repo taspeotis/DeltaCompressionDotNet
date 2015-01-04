@@ -50,8 +50,8 @@ namespace DeltaCompressionDotNet.MsDelta
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool CreateDelta(
             [MarshalAs(UnmanagedType.I8)] FileTypeSet fileTypeSet,
-            long setFlags,
-            long resetFlags,
+            [MarshalAs(UnmanagedType.I8)] CreateFlags setFlags,
+            [MarshalAs(UnmanagedType.I8)] CreateFlags resetFlags,
             string sourceName,
             string targetName,
             string sourceOptionsName,

@@ -51,10 +51,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CompressionTest.cs" />
     <Compile Include="CompressionTests.cs" />
     <Compile Include="MsDeltaCompressionTests.cs" />
     <Compile Include="PatchApiCompressionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DeltaCompressionDotNet\DeltaCompressionDotNet.csproj">

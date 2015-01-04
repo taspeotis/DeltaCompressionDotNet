@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DeltaCompressionDotNet.Tests
 {
     public class CompressionTests<TDeltaCompression>
         where TDeltaCompression : IDeltaCompression, new()
-    {       
+    {
         private const string CalcFileName = "Calc.exe";
         private const string NotepadFileName = "Notepad.exe";
         private const string MediaFolderName = "Media";
@@ -41,7 +39,7 @@ namespace DeltaCompressionDotNet.Tests
                 compressionTest.TestCleanup();
         }
 
-        [ExpectedException(typeof(Win32Exception)), TestMethod]
+        [ExpectedException(typeof (Win32Exception)), TestMethod]
         public void ApplyDelta_Calls_GetLastError()
         {
             var deltaCompression = new TDeltaCompression();
@@ -58,7 +56,7 @@ namespace DeltaCompressionDotNet.Tests
             }
         }
 
-        [ExpectedException(typeof(Win32Exception)), TestMethod]
+        [ExpectedException(typeof (Win32Exception)), TestMethod]
         public void CreateDelta_Calls_GetLastError()
         {
             var deltaCompression = new TDeltaCompression();
@@ -83,77 +81,27 @@ namespace DeltaCompressionDotNet.Tests
             foreach (var compressionTest in _compressionTests)
                 compressionTest.CreateAndApplyDelta(deltaCompression);
         }
-    }
 
-    internal sealed class CompressionTest
-    {
-        public string PrivateFile1Path { get; }
-
-        public string PrivateFile2Path { get; }
-
-        public string PrivateDeltaPath { get; }
-
-        public string PrivateFinalPath { get; }
-
-        private byte[] ExpectedHash { get; }
-
-        public CompressionTest(string baseFolderPath, string file1FileName, string file2FileName)
+        [TestMethod]
+        public void CreateDelta_And_ApplyDelta_Handle_Big_Files()
         {
-            PrivateFile1Path = Path.GetTempFileName();
-            PrivateFile2Path = Path.GetTempFileName();
-            PrivateDeltaPath = Path.GetTempFileName();
-            PrivateFinalPath = Path.GetTempFileName();
+            var baseFolderPath = Path.GetTempPath();
 
-            var file1Path = Path.Combine(baseFolderPath, file1FileName);
-            var file2Path = Path.Combine(baseFolderPath, file2FileName);
-
-            CopyFile(file1Path, PrivateFile1Path);
-            CopyFile(file2Path, PrivateFile2Path);
-
-            ExpectedHash = HashFile(file2Path);
-        }
-
-        public void CreateAndApplyDelta(IDeltaCompression deltaCompression)
-        {
-            deltaCompression.CreateDelta(PrivateFile1Path, PrivateFile2Path, PrivateDeltaPath);
-            deltaCompression.ApplyDelta(PrivateDeltaPath, PrivateFile1Path, PrivateFinalPath);
-
-            var actualHash = HashFile(PrivateFinalPath);
-
-            CollectionAssert.AreEqual(ExpectedHash, actualHash);
-        }
-
-        public void TestCleanup()
-        {
-            TryDeleteFile(PrivateFile1Path);
-            TryDeleteFile(PrivateFile2Path);
-            TryDeleteFile(PrivateDeltaPath);
-            TryDeleteFile(PrivateFinalPath);
-        }
-
-        private static void CopyFile(string sourceFileName, string destinationFileName)
-        {
-            File.Copy(sourceFileName, destinationFileName, true);
-        }
-
-        private static byte[] HashFile(string path)
-        {
-            using (var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read))
-            using (var hashAlgorithm = SHA1.Create())
+            using (var tempFile1 = new RandomFile(baseFolderPath))
+            using (var tempFile2 = new RandomFile(baseFolderPath))
             {
-                return hashAlgorithm.ComputeHash(fileStream);
-            }
-        }
+                var compressionTest = new CompressionTest(baseFolderPath, tempFile1.FileName, tempFile2.FileName);
 
-        [ExcludeFromCodeCoverage]
-        private static void TryDeleteFile(string path)
-        {
-            try
-            {
-                File.Delete(path);
-            }
-            catch (IOException)
-            {
+                try
+                {
+                    var deltaCompression = new TDeltaCompression();
+
+                    compressionTest.CreateAndApplyDelta(deltaCompression);
+                }
+                finally
+                {
+                    compressionTest.TestCleanup();
+                }
             }
         }
     }

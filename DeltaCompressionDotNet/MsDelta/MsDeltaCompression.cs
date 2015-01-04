@@ -7,14 +7,13 @@ namespace DeltaCompressionDotNet.MsDelta
     {
         public void CreateDelta(string oldFilePath, string newFilePath, string deltaFilePath)
         {
-            const int setFlags = 0;
-            const int resetFlags = 0;
             const string sourceOptionsName = null;
             const string targetOptionsName = null;
             var globalOptions = new DeltaInput();
             var targetFileTime = IntPtr.Zero;
 
-            if (!NativeMethods.CreateDelta(FileTypeSet.Executables, setFlags, resetFlags, oldFilePath, newFilePath,
+            if (!NativeMethods.CreateDelta(
+                FileTypeSet.Executables, CreateFlags.IgnoreFileSizeLimit, CreateFlags.None, oldFilePath, newFilePath,
                 sourceOptionsName, targetOptionsName, globalOptions, targetFileTime, HashAlgId.Crc32, deltaFilePath))
             {
                 throw new Win32Exception();

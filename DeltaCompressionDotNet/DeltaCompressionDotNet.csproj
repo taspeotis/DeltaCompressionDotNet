@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="IDeltaCompression.cs" />
     <Compile Include="MsDelta\ApplyFlags.cs" />
+    <Compile Include="MsDelta\CreateFlags.cs" />
     <Compile Include="MsDelta\DeltaInput.cs" />
     <Compile Include="MsDelta\FileTypeSet.cs" />
     <Compile Include="MsDelta\HashAlgId.cs" />
