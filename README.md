@@ -21,6 +21,8 @@ To this extent, the library is also licensed under the [*DBAD-PL*](http://www.db
 
 `CreateDelta` returns `void`; if the function is not successful in creating a delta a `Win32Exception` is thrown. The `NativeErrorCode` of the exception should contain the value of `GetLastError()`, which may describe the failure.
 
+*MSDelta* has a default limit of 32 MiB for source and destination files. The `MsDeltaCompression` implementation uses the `DELTA_FLAG_IGNORE_FILE_SIZE_LIMIT` flag to permit inputs of any size, but note that performance and memory usage suffers as inputs get larger. See [Run-Time Requirements](https://msdn.microsoft.com/en-us/library/bb417345.aspx#runtime_reqs) estimated memory usage.
+
 ### Applying Deltas
 
     var compression = new MsDeltaCompression(); /* or PatchApiCompression(); */
