@@ -4,7 +4,7 @@ A managed wrapper around [Microsoft's delta compression application programming 
 
 ## License
 
-*DeltaCompressionDotNet* is licensed under the [*Microsoft Public License (MS-PL)*](http://www.microsoft.com/en-us/openness/licenses.aspx).
+*DeltaCompressionDotNet* is licensed under the [*Microsoft Public License (MS-PL)*](https://opensource.org/licenses/MS-PL).
 
 It's worth noting that large parts of *DeltaCompressionDotNet*'s implementation are generic (we're talking `rangeCheck`, here) and while this wrapper represents my own, original work, it would be difficult to enforce the license against anything but a slavish copy.
 
@@ -40,7 +40,7 @@ Both `MsDeltaCompression` and `PatchApiCompression` implement `IDeltaCompression
 
 The library is not tied to any particular architecture, the code should execute on x86, x64 and ia64.
 
-It's unlikely that *DeltaCompressionDotNet* will work on operating systems other than Windows (à la Mono).
+It's unlikely that *DeltaCompressionDotNet* will work on operating systems other than Windows (Ã  la Mono).
 
 ## Bugs/Feedback
 
