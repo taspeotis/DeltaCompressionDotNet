@@ -9,6 +9,6 @@
     <owners>ta.speot.is</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A managed wrapper around Microsoft's delta compression application programming interfaces.</description>
-    <copyright>Copyright &#169; 2015 Todd Aspeotis</copyright>
+    <copyright>Copyright &#169; 2017 Todd Aspeotis</copyright>
   </metadata>
 </package>
