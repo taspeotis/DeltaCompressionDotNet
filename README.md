@@ -2,6 +2,11 @@
 
 A managed wrapper around [Microsoft's delta compression application programming interfaces](http://msdn.microsoft.com/en-us/library/bb417345.aspx).
 
+> ⚠️ **This class library only works on Windows, under the .NET Framework.**
+>
+> If you need delta compression support that's cross platform, consider the managed implementation of bsdiff in [bsdiff.net](https://github.com/LogosBible/bsdiff.net).
+> It's included in the [deltaq](https://www.nuget.org/packages/deltaq/) NuGet package.
+
 ## License
 
 *DeltaCompressionDotNet* is licensed under the [*Microsoft Public License (MS-PL)*](https://opensource.org/licenses/MS-PL).
