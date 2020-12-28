@@ -46,7 +46,7 @@ namespace DeltaCompressionDotNet.Tests
 
             try
             {
-                deltaCompression.ApplyDelta(null, null, null);
+                deltaCompression.ApplyDelta(null!, null!, null!);
             }
             catch (Win32Exception exception)
             {
@@ -63,7 +63,7 @@ namespace DeltaCompressionDotNet.Tests
 
             try
             {
-                deltaCompression.CreateDelta(null, null, null);
+                deltaCompression.CreateDelta(null!, null!, null!);
             }
             catch (Win32Exception exception)
             {
@@ -86,22 +86,19 @@ namespace DeltaCompressionDotNet.Tests
         public void CreateDelta_And_ApplyDelta_Handle_Big_Files()
         {
             var baseFolderPath = Path.GetTempPath();
+            using var tempFile1 = new RandomFile(baseFolderPath);
+            using var tempFile2 = new RandomFile(baseFolderPath);
+            var compressionTest = new CompressionTest(baseFolderPath, tempFile1.FileName, tempFile2.FileName);
 
-            using (var tempFile1 = new RandomFile(baseFolderPath))
-            using (var tempFile2 = new RandomFile(baseFolderPath))
+            try
             {
-                var compressionTest = new CompressionTest(baseFolderPath, tempFile1.FileName, tempFile2.FileName);
+                var deltaCompression = new TDeltaCompression();
 
-                try
-                {
-                    var deltaCompression = new TDeltaCompression();
-
-                    compressionTest.CreateAndApplyDelta(deltaCompression);
-                }
-                finally
-                {
-                    compressionTest.TestCleanup();
-                }
+                compressionTest.CreateAndApplyDelta(deltaCompression);
+            }
+            finally
+            {
+                compressionTest.TestCleanup();
             }
         }
     }

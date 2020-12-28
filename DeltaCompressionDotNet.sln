@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{46FB246E-CF40-4388-835A-C9A896938E58}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8A47F536-39D7-472E-82DE-F7888AA0C51E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5F11AFE4-A174-469D-B882-1DC993917DFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaCompressionDotNet", "src\DeltaCompressionDotNet\DeltaCompressionDotNet.csproj", "{FA04F22B-5282-4062-B039-3585C0A6F8DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaCompressionDotNet.Tests", "test\DeltaCompressionDotNet.Tests\DeltaCompressionDotNet.Tests.csproj", "{C938FAEB-B1B4-4A03-AC03-BFC58AF2FAFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{055CC9E8-2188-4E4C-93C8-22A77DDD8FF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{1DF3A5AC-DDAD-4B98-9E8B-D42EDD577FD7}"
+ProjectSection(SolutionItems) = preProject
+	.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
+EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA04F22B-5282-4062-B039-3585C0A6F8DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA04F22B-5282-4062-B039-3585C0A6F8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA04F22B-5282-4062-B039-3585C0A6F8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA04F22B-5282-4062-B039-3585C0A6F8DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C938FAEB-B1B4-4A03-AC03-BFC58AF2FAFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C938FAEB-B1B4-4A03-AC03-BFC58AF2FAFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C938FAEB-B1B4-4A03-AC03-BFC58AF2FAFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C938FAEB-B1B4-4A03-AC03-BFC58AF2FAFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {964E8AF5-A41C-473D-8DDB-CB81B33FBC68}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FA04F22B-5282-4062-B039-3585C0A6F8DB} = {8A47F536-39D7-472E-82DE-F7888AA0C51E}
+		{C938FAEB-B1B4-4A03-AC03-BFC58AF2FAFF} = {5F11AFE4-A174-469D-B882-1DC993917DFA}
+		{055CC9E8-2188-4E4C-93C8-22A77DDD8FF4} = {46FB246E-CF40-4388-835A-C9A896938E58}
+		{1DF3A5AC-DDAD-4B98-9E8B-D42EDD577FD7} = {055CC9E8-2188-4E4C-93C8-22A77DDD8FF4}
+	EndGlobalSection
+EndGlobal

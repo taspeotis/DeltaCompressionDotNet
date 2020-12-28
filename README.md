@@ -2,7 +2,7 @@
 
 A managed wrapper around [Microsoft's delta compression application programming interfaces](http://msdn.microsoft.com/en-us/library/bb417345.aspx).
 
-> ⚠️ **This class library only works on Windows, under the .NET Framework.**
+> ⚠️ **This class library only works on Windows**
 >
 > If you need delta compression support that's cross platform, consider the managed implementation of bsdiff in [bsdiff.net](https://github.com/LogosBible/bsdiff.net).
 > It's included in the [deltaq](https://www.nuget.org/packages/deltaq/) NuGet package.
@@ -60,3 +60,5 @@ The above applies equally for feedback.
 [Atif Aziz](https://github.com/atifaziz) kindly submitted [improvements](https://github.com/taspeotis/DeltaCompressionDotNet/pull/3) to the unit tests ([twice](https://github.com/taspeotis/DeltaCompressionDotNet/pull/4)) and provided advice on structuring the project.
 
 John Anderson from [Fungusware](http://www.fungusware.com/) identified [several](https://github.com/taspeotis/DeltaCompressionDotNet/issues/7) [issues](https://github.com/taspeotis/DeltaCompressionDotNet/issues/8) [with](https://github.com/taspeotis/DeltaCompressionDotNet/issues/9) *DeltaCompressionDotNet*.
+
+[Jann Roder](https://github.com/roederja2) moved the target framework [forward](https://github.com/taspeotis/DeltaCompressionDotNet/pull/15) to .NET Standard.

@@ -2,24 +2,32 @@ name: .NET Core
 
 on:
   push:
-    branches: [ develop ]
-  pull_request:
-    branches: [ develop ]
+    branches: [ master ]
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core
+      with:
+        fetch-depth: 0
+        
+    - name: Install GitVersion
+      uses: gittools/actions/gitversion/setup@v0.9.7
+      with:
+          versionSpec: '5.x'
+
+    - name: Use GitVersion
+      id: gitVersion
+      uses: gittools/actions/gitversion/execute@v0.9.7
+        
+    - name: Use .NET 5
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.301
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+        dotnet-version: '5.0.x'
+    
+    - name: dotnet test
+      run: dotnet test --configuration Release
+    
+    - name: dotnet pack
+      run: dotnet pack --configuration Release --no-build
