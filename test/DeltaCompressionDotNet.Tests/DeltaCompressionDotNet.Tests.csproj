@@ -3,7 +3,8 @@
   <PropertyGroup>
     <IsPackable>false</IsPackable>
     <Nullable>enable</Nullable>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks>net5.0;net472</TargetFrameworks>
+    <LangVersion>9</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\DeltaCompressionDotNet\DeltaCompressionDotNet.csproj" />
